@@ -31,7 +31,8 @@ router.post('/branddaily' ,(req, res) => {
     })
     router.get('/brand', (req, res) => {
   UserModel.findOne({
-            brand: req.body.brand
+            brand: req.body.brand,
+            $set:new Date()
         }).then(() => {
             res.status(201).json({id:req.id}
             )
