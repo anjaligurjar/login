@@ -9,10 +9,13 @@ const router= express.Router()
 
 router.post('/register' ,(req, res) => {
     const user = new UserModel({
-        firstname: req.body.firstname,
-        email: req.body.email,
-        password: req.body.password,
-        "result": "{ID}"
+        
+        brand: req.body.brand,
+        TransactionType:req.body.TransactionType,
+        TotalOrderValue: req.body.TotalOrderValue,
+        TotalOrders: req.body.TotalOrders,
+        grossMarginPercentage:req.body.grossMarginPercentage
+
     })
 
     user.save().then(() => {
@@ -28,10 +31,10 @@ router.post('/register' ,(req, res) => {
     })
     router.get('/login', (req, res) => {
   UserModel.findOne({
-            email: req.body.email,
-            password: req.body.password
+            brand: req.body.brand
         }).then(() => {
-            res.status(201).send('you are login successfuly')
+            res.status(201).json({id:req.id}
+            )
             
         })
             .catch((error) => {
