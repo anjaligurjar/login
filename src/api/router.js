@@ -7,7 +7,7 @@ const router= express.Router()
 
 
 
-router.post('/register' ,(req, res) => {
+router.post('/branddaily' ,(req, res) => {
     const user = new UserModel({
         
         brand: req.body.brand,
@@ -29,7 +29,7 @@ router.post('/register' ,(req, res) => {
 
         })
     })
-    router.get('/login', (req, res) => {
+    router.get('/brand', (req, res) => {
   UserModel.findOne({
             brand: req.body.brand
         }).then(() => {
