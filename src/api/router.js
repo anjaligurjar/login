@@ -8,13 +8,16 @@ const router= express.Router()
 
 
 router.post('/branddaily' ,(req, res) => {
-    const user = new UserModel({
+    const user =   new UserModel({
         
         brand: req.body.brand,
         TransactionType:req.body.TransactionType,
         TotalOrderValue: req.body.TotalOrderValue,
         TotalOrders: req.body.TotalOrders,
-        grossMarginPercentage:req.body.grossMarginPercentage
+        grossMarginPercentage:req.body.grossMarginPercentage,
+    
+
+        $set:new Date()
 
     })
 
@@ -32,11 +35,10 @@ router.post('/branddaily' ,(req, res) => {
     router.get('/brand', (req, res) => {
   UserModel.findOne({
             brand: req.body.brand,
-            $set:new Date()
+           
         }).then(() => {
-            res.status(201).json({id:req.id}
-            )
-            
+            res.status(201).json({message:"this is  collection"})
+                        
         })
             .catch((error) => {
                 console.log(error)

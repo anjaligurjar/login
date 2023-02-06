@@ -28,12 +28,15 @@ const brand_sales_daily= new mongoose.Schema({
     grossMarginPercentage:{
         type:String
     },
-    cuurentdate:{ 
+    
     createdAt: Date,
-	updatedAt:  Date,
-   
+	updatedAt:  Date
 },
- db
+   
+{
+    collection: 'users',
+    timestamps: true,  
+ 
 	
 
 
